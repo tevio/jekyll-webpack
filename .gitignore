@@ -6,6 +6,9 @@
 /pkg/
 /spec/reports/
 /tmp/
+/spec/fixtures/.jekyll-cache/
+/spec/fixtures/_site/
+/spec/fixtures/node_modules/
 
 # rspec failure tracking
 .rspec_status
