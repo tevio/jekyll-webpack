@@ -1,6 +1,6 @@
 ---
-seventy_five: '75%'
 ---
+
 {% assign inset = site.data.tailwind['inset'] %}
 
 module.exports = {
