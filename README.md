@@ -29,8 +29,16 @@ And add the following to your site's `_config.yml`
 
 ```yml
 plugins:
-  - jekyll-webpack
+  - jekyll/webpack
 ```
+
+Now install webpack, I use `yarn`
+
+`yarn add webpack webpack-cli --dev`
+
+And the basic JS entrypoint `mkdir src && touch src/index.js`
+
+And you're away!
 
 ## Usage
 
