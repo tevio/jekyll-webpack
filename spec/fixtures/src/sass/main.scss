@@ -1,0 +1,8 @@
+body {
+  [data-controller="hello"] {
+    border: solid 1px green;
+    @apply bg-gray-500;
+  }
+
+  @apply bg-black;
+}
