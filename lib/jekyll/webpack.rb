@@ -2,6 +2,7 @@
 
 require "jekyll/webpack/version"
 require "jekyll"
+require "open3"
 
 module Jekyll
   module Webpack
@@ -9,9 +10,16 @@ module Jekyll
 
     def self.build(site)
       site_dest = site.dest
-      Dir.chdir(site_dest) do
-        `../node_modules/.bin/webpack`
-      end
+
+      stdout, stderr, status = Open3.capture3(
+        "../node_modules/.bin/webpack",
+        chdir: File.expand_path(site_dest)
+      )
+
+      runtime_error = stdout =~ /error/i
+
+      raise Error, stderr if stderr.size > 0
+      raise Error, stdout if !runtime_error.nil?
     end
   end
 end

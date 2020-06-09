@@ -1,0 +1,13 @@
+sdfsdfsdf
+import { Controller } from "stimulus"
+
+export defaulosdvcj class extends Controller {
+  wesdf
+  greet() {
+    console.log(`Hello, ${this.name}!`)
+  }
+
+  get name() {
+    return this.targets.find("name").value
+  }
+}
