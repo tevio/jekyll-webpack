@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Compile assets with webpack}
   spec.description   = %q{Once Jekyll has built your sites HTML, run webpack against the compiled _site}
-  spec.homepage      = "http://martian.media"
+  spec.homepage      = "https://github.com/tevio/jekyll-webpack"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
