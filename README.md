@@ -1,8 +1,11 @@
 # Jekyll::Webpack
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jekyll/webpack`. To experiment with that code, run `bin/console` for an interactive prompt.
+This plugin will allow you to build your assets with Webpack _after_ Jekyll has compiled your site to the `_site` folder. You will need to have Webpack installed at the root of your project in order for this to work.
 
-TODO: Delete this and the text above, and describe your gem
+## Why?
+
+This adds Webpack at a sane point in the build pipeline and will also allow you to parameterize your webpack and other JS config files by prepending them with front matter, before the compilation occurs.
+
 
 ## Installation
 
@@ -29,7 +32,9 @@ plugins:
 
 ## Usage
 
-TODO: Write usage instructions here
+In your root Jekyll project folder you need to have Webpack installed, so:-
+
+`yarn add webpack webpack-cli --dev`
 
 ## Development
 

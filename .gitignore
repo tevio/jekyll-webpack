@@ -9,6 +9,7 @@
 /spec/fixtures/.jekyll-cache/
 /spec/fixtures/_site/
 /spec/fixtures/node_modules/
+/*.gem
 
 # rspec failure tracking
 .rspec_status
