@@ -30,7 +30,7 @@ RSpec.describe Jekyll::Webpack do
     expect(Jekyll::Webpack::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "writes the output" do
+    expect(File.exists?(site.dest)).to eq(true)
   end
 end
