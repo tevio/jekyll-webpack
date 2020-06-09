@@ -8,8 +8,14 @@ module Jekyll
     class Error < StandardError; end
     # Your code goes here...
 
-    def build(site)
-      binding.pry
+    def self.build(site)
+      site_dest = site.dest
+      Dir.chdir(site_dest) do
+        binding.pry
+        `pwd`
+        `ls`
+        # Kernel.exec ["yarn", "webpack"]
+      end
     end
   end
 end

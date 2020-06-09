@@ -16,6 +16,15 @@ RSpec.describe Jekyll::Webpack do
   end
   let(:webpacker)    { described_class }
   let(:site)        { Jekyll::Site.new(configs) }
+  let(:posts)        { site.posts.docs.sort.reverse }
+
+  before(:each) do
+    site.reset
+    site.read
+    (site.pages | posts | site.docs_to_write).each { |p| p.content.strip! }
+    site.render
+    site.write
+  end
 
   it "has a version number" do
     expect(Jekyll::Webpack::VERSION).not_to be nil
