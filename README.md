@@ -20,6 +20,13 @@ Or install it yourself as:
 
     $ gem install jekyll-webpack
 
+And add the following to your site's `_config.yml`
+
+```yml
+plugins:
+  - jekyll-webpack
+```
+
 ## Usage
 
 TODO: Write usage instructions here
