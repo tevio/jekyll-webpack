@@ -16,7 +16,7 @@ module Jekyll
         chdir: File.expand_path(site_dest)
       )
 
-      runtime_error = stdout =~ /error/i
+      runtime_error = stdout =~ /ERROR in|SyntaxError/
 
       raise Error, stderr if stderr.size > 0
       raise Error, stdout if !runtime_error.nil?
