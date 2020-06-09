@@ -4,9 +4,9 @@ This plugin will allow you to build your assets with Webpack _after_ Jekyll has 
 
 ## Why?
 
-This adds Webpack at a sane point in the build pipeline and will also allow you to parameterize your webpack and other JS config files by prepending them with front matter, before the compilation occurs. You can see a functioning excample in the `spec/fixtures` folder:-
+This adds Webpack at a sane point in the build pipeline and will also allow you to parameterize your webpack and other JS config files by prepending them with front matter, before the compilation occurs. You can see a functioning example in the `spec/fixtures` folder:-
 
-There is a `_data/tailwind.yml` file in the fixure site that's picked up by adding a frontmatter declaration in `tailwind.config.yml`.
+There is a `_data/tailwind.yml` file in the fixure site that's picked up by adding a frontmatter declaration in `tailwind.config.js`. This Tailwind config is in turn picked up by the outputted webpack config and parsed when webpack runs.
 
 
 ## Installation
