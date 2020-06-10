@@ -32,19 +32,17 @@ plugins:
   - jekyll/webpack
 ```
 
-Now install webpack, I use `yarn`
-
-`yarn add webpack webpack-cli --dev`
-
-And the basic JS entrypoint `mkdir src && touch src/index.js`
-
-And you're away!
+NOTE the `/`
 
 ## Usage
 
 In your root Jekyll project folder you need to have Webpack installed, so:-
 
 `yarn add webpack webpack-cli --dev`
+
+And the basic JS entrypoint `mkdir src && touch src/index.js`
+
+And you're away! Just run the `jekyll serve` or `jekyll build` commands with whatever env you need.
 
 ## Development
 
