@@ -32,7 +32,16 @@ plugins:
   - jekyll/webpack
 ```
 
-NOTE the `/`
+NOTE the `/` - the `-` variant is not available yet.
+
+ALSO NOTE - it's probably advisable to place this plugin as the very last one in the build pipe. EG:-
+
+```yml
+plugins:
+  - jekyll-otherplug
+  ...
+  - jekyll/webpack
+```
 
 ## Usage
 
