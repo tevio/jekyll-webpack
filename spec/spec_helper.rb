@@ -1,6 +1,5 @@
 require "bundler/setup"
 require "jekyll/webpack"
-require "pry"
 
 RSpec.configure do |config|
   FIXTURES_DIR = File.expand_path("fixtures", __dir__)

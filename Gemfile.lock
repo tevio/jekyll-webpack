@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-webpack (0.2.1)
+    jekyll-webpack (0.2.3)
       jekyll
 
 GEM

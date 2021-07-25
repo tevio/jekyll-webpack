@@ -1,3 +1,9 @@
 collections:
   docs:
     output: true
+
+webpack:
+  site_dest: _site
+  cleanup_files:
+    - src
+    - node_modules

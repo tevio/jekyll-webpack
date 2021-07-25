@@ -1,4 +1,5 @@
 ---
+title: I'm also a post
 ---
 
 ```ruby

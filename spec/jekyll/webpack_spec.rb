@@ -18,7 +18,18 @@ RSpec.describe Jekyll::Webpack do
   end
   let(:webpacker)    { described_class }
   let(:site)         { Jekyll::Site.new(configs) }
+  let(:cleaner)         { Jekyll::Cleaner.new(configs) }
   let(:posts)        { site.posts.docs.sort.reverse }
+
+  after(:each) do
+    if Dir.exists?("#{SPEC_FIXTURES_DIR}/dist")
+      FileUtils.rm_rf("#{SPEC_FIXTURES_DIR}/dist")
+    end
+
+    if Dir.exists?("#{SPEC_FIXTURES_DIR}/_site")
+      FileUtils.rm_rf("#{SPEC_FIXTURES_DIR}/_site")
+    end
+  end
 
   it "has a version number" do
     expect(Jekyll::Webpack::VERSION).not_to be nil
@@ -40,6 +51,7 @@ RSpec.describe Jekyll::Webpack do
         if File.exists?(bad_js_dest_on)
           File.delete(bad_js_dest_on)
         end
+
         site.reset
         site.read
         (site.pages | posts | site.docs_to_write).each { |p| p.content.strip! }
@@ -48,7 +60,13 @@ RSpec.describe Jekyll::Webpack do
 
       it "writes the output" do
         site.write
+
+        expect(File.exists?("#{SPEC_FIXTURES_DIR}/dist")).to eq(false)
         expect(File.exists?(site.dest)).to eq(true)
+        expect(File.exists?("#{site.dest}/dist/main.css")).to eq(true)
+
+        expect(File.exists?("#{site.dest}/src")).to eq(false)
+
       end
     end
 

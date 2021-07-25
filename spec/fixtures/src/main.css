@@ -10,52 +10,56 @@ body {
   color: white;
 }
 
+/*! purgecss start ignore */
+
 @responsive {
-  .top-1\/2 {
+  .top-1--2 {
     @apply top-50per;
   }
 
-  .bottom-1\/2 {
+  .bottom-1--2 {
     @apply bottom-50per;
   }
 
-  .left-1\/2 {
+  .left-1--2 {
     @apply left-50per;
   }
 
-  .right-1\/2 {
+  .right-1--2 {
     @apply right-50per;
   }
 
-  .top-1\/4 {
+  .top-1--4 {
     @apply top-25per;
   }
 
-  .bottom-1\/4 {
+  .bottom-1--4 {
     @apply bottom-25per;
   }
 
-  .left-1\/4 {
+  .left-1--4 {
     @apply left-25per;
   }
 
-  .right-1\/4 {
+  .right-1--4 {
     @apply right-25per;
   }
 
-  .top-3\/4 {
+  .top-3--4 {
     @apply top-75per;
   }
 
-  .bottom-3\/4 {
+  .bottom-3--4 {
     @apply bottom-75per;
   }
 
-  .left-3\/4 {
+  .left-3--4 {
     @apply left-75per;
   }
 
-  .right-3\/4 {
+  .right-3--4 {
     @apply right-75per;
   }
 }
+
+/*! purgecss end ignore */

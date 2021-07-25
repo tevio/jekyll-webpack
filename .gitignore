@@ -8,6 +8,7 @@
 /tmp/
 /spec/fixtures/.jekyll-cache/
 /spec/fixtures/_site/
+/spec/fixtures/dist/
 /spec/fixtures/node_modules/
 /*.gem
 

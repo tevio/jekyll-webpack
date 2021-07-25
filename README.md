@@ -6,8 +6,6 @@ This plugin will allow you to build your assets with Webpack _after_ Jekyll has 
 
 This adds Webpack at a sane point in the build pipeline and will also allow you to parameterize your webpack and other JS config files by prepending them with front matter, before the compilation occurs. You can see a functioning example in the `spec/fixtures` folder:-
 
-There is a `_data/tailwind.yml` file in the fixure site that's picked up by adding a frontmatter declaration in `tailwind.config.js`. This Tailwind config is in turn picked up by the outputted webpack config and parsed when webpack runs.
-
 
 ## Installation
 
@@ -52,6 +50,28 @@ In your root Jekyll project folder you need to have Webpack installed, so:-
 And the basic JS entrypoint `mkdir src && touch src/index.js`
 
 And you're away! Just run the `jekyll serve` or `jekyll build` commands with whatever env you need.
+
+### Configuring JS config files
+
+There is a `_data/tailwind.yml` file in the fixure site that's picked up by adding a frontmatter declaration in `tailwind.config.js`. This Tailwind config is in turn picked up by the outputted webpack config and parsed when webpack runs.
+
+### Cleanup
+If you wish to clean out unused source files after webpack has run that got included in the compiled site, you need to add an entry into your `_config.yml` like:
+
+``` yml
+// _config.yml
+
+webpack:
+  cleanup_files: src
+
+// or an array
+
+webpack:
+  cleanup_files:
+    - src
+    - node_modules
+```
+
 
 ## Development
 
