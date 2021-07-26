@@ -10,7 +10,11 @@ module Jekyll
 
     def self.build(site)
       site_dest = site.dest
-
+      # only run webpack once in _site/, not in subdirectories
+      if not site_dest.end_with?("_site")                                                                                                                                                             
+        return                                                                                                                                                                                
+      end
+      
       stdout, stderr, status = Open3.capture3(
         "../node_modules/.bin/webpack",
         chdir: File.expand_path(site_dest)
