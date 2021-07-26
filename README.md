@@ -51,6 +51,8 @@ And the basic JS entrypoint `mkdir src && touch src/index.js`
 
 And you're away! Just run the `jekyll serve` or `jekyll build` commands with whatever env you need.
 
+## Config
+
 ### Configuring JS config files
 
 There is a `_data/tailwind.yml` file in the fixure site that's picked up by adding a frontmatter declaration in `tailwind.config.js`. This Tailwind config is in turn picked up by the outputted webpack config and parsed when webpack runs.
@@ -71,6 +73,25 @@ webpack:
     - src
     - node_modules
 ```
+
+### Dest inclusion (excluding
+If want to ensure that webpack only runs in a specific site dest (eg `_site` only, and no subdirectories) you can pass a single path value or an inclusion list of paths you want webpack to run in, at config time, by modifiying the `_config.yml` like so:
+
+``` yml
+// _config.yml
+
+webpack:
+  only_in: _site
+
+// or as a list
+webpack:
+  only_in:
+    - _site
+    - _build
+```
+
+### Example `_config.yml`
+You can have a look at the possible configuration options in the fixtures config file at `spec/fixtures/_config.yml` in this repo.
 
 
 ## Development

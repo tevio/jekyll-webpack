@@ -10,11 +10,14 @@ module Jekyll
 
     def self.build(site)
       site_dest = site.dest
-      # only run webpack once in _site/, not in subdirectories
-      if not site_dest.end_with?("_site")                                                                                                                                                             
-        return                                                                                                                                                                                
+
+      only_in = site.config.dig('webpack', 'only_in')
+      if only_in
+        entries = []
+        array_or_scalar(only_in) { |entry| entries << site_dest.end_with?(entry) }
+        return unless entries.any? true
       end
-      
+
       stdout, stderr, status = Open3.capture3(
         "../node_modules/.bin/webpack",
         chdir: File.expand_path(site_dest)
@@ -32,17 +35,23 @@ module Jekyll
       cleanup_files = site.config.dig('webpack', 'cleanup_files')
 
       if cleanup_files
-        if Array === cleanup_files
-          cleanup_files.each do |dest_for_clean|
-            if Dir.exists?(File.expand_path(dest_for_clean, site.dest))
-              FileUtils.rm_rf(File.expand_path(dest_for_clean, site.dest))
-            end
-          end
-        else
-          if Dir.exists?(File.expand_path(cleanup_files, site.dest))
-            FileUtils.rm_rf(File.expand_path(dest_src_for_clean, site.dest))
+        array_or_scalar(cleanup_files) do |dest_for_clean|
+          if Dir.exists?(File.expand_path(dest_for_clean, site.dest))
+            FileUtils.rm_rf(File.expand_path(dest_for_clean, site.dest))
           end
         end
+      end
+    end
+
+    private
+
+    def self.array_or_scalar(value)
+      if Array === value
+        value.each do |entry|
+          yield entry
+        end
+      else
+        yield value
       end
     end
   end
