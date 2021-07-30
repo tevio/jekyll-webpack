@@ -57,6 +57,35 @@ And you're away! Just run the `jekyll serve` or `jekyll build` commands with wha
 
 There is a `_data/tailwind.yml` file in the fixure site that's picked up by adding a frontmatter declaration in `tailwind.config.js`. This Tailwind config is in turn picked up by the outputted webpack config and parsed when webpack runs.
 
+### Debouncing Webpack runs
+Sometimes the webpack build can take a long time. You can configure jekyll-webpack to debounce the build in a number of ways. The options are:-
+
+  - run once (when you first run `serve`)
+  - run every n iterations (specify a number of iterations to skip webpack compilation)
+  - run on watch folder changes (specific a folder to watch and only run webpack when a file in the folder has changed)
+
+Add the following entries into `_config.yml`
+
+``` yml
+// _config.yml
+
+webpack:
+  debounce:
+    run_once: true
+
+// or ...
+webpack:
+  debounce:
+    every: 10
+
+// or ...
+webpack:
+  debounce:
+    watch: src
+```
+
+This is very useful if you plan to use `jekyll serve` with the `--livereload` option as it can speed up your development time significantly.
+
 ### Cleanup
 If you wish to clean out unused source files after webpack has run that got included in the compiled site, you need to add an entry into your `_config.yml` like:
 

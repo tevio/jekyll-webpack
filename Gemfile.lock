@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    jekyll-webpack (0.2.3)
+    jekyll-webpack (0.2.5)
       jekyll
+      listen
 
 GEM
   remote: https://rubygems.org/

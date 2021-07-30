@@ -16,10 +16,11 @@ RSpec.describe Jekyll::Webpack do
       )
     )
   end
-  let(:webpacker)    { described_class }
-  let(:site)         { Jekyll::Site.new(configs) }
-  let(:cleaner)         { Jekyll::Cleaner.new(configs) }
-  let(:posts)        { site.posts.docs.sort.reverse }
+
+  let(:webpacker) { described_class }
+  let(:site)      { Jekyll::Site.new(configs) }
+  let(:cleaner)   { Jekyll::Cleaner.new(configs) }
+  let(:posts)     { site.posts.docs.sort.reverse }
 
   after(:each) do
     if Dir.exists?("#{SPEC_FIXTURES_DIR}/dist")
