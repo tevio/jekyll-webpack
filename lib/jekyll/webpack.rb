@@ -55,7 +55,7 @@ module Jekyll
         array_or_scalar(cleanup_files) do |dest_for_clean|
           path = File.expand_path(dest_for_clean, site.dest)
 
-          if File.exists?(path) || Dir.exists?(path)
+          if File.exist?(path) || Dir.exist?(path)
             FileUtils.rm_rf(path)
           end
         end
